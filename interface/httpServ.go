@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"net/http"
 	"time"
@@ -8,11 +9,10 @@ import (
 
 type customHandler struct{}
 
-func (c customHandler) ServeHTTP(rw http.ResponseWriter, req *http.Request) {
-	resp := []byte("Hello World")
-	_, err := rw.Write(resp)
+func (c customHandler) ServeHTTP(w http.ResponseWriter, req *http.Request) {
+	_, err := fmt.Fprint(w, "Hello World\n")
 	if err != nil {
-		log.Fatal("Something went wrong")
+		log.Fatal(err)
 	}
 }
 
