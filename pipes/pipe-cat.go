@@ -18,7 +18,6 @@ func ReadFile(filePath string, pw *io.PipeWriter, wg *sync.WaitGroup) {
 	if err != nil {
 		log.Fatalf("Could not read file: %v, Error: %v, Bytes written: %v", filePath, err, n)
 	}
-
 }
 
 func main() {
