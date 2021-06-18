@@ -1,3 +1,4 @@
+// Twice io.Copy
 package main
 
 import (
