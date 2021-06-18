@@ -30,6 +30,7 @@ func main() {
 	defer wg.Wait()
 
 	pr, pw := io.Pipe()
+	defer pr.Close()
 
 	filePath := os.Args[1]
 	wg.Add(1)
@@ -40,4 +41,5 @@ func main() {
 	if err != nil {
 		log.Fatalf("Error reading from pipe, Error: %v, bytes written: %v", err, n)
 	}
+
 }
